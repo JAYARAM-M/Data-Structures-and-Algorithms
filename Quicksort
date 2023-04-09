@@ -1,0 +1,58 @@
+QUICK SORT
+
+tc:0(nlogn)
+sc:0(nlogn)
+d&c approach
+Instable sort because decision based on pivot element
+outplsce algo
+used in array
+fastet sorting technique
+
+
+#include<stdio.h>
+void swap(int *x,int *y)
+{
+    int temp=*x;
+    *x=*y;
+    *y=temp;
+}
+int partion(int arr[],int start,int end)
+{
+    int p=arr[end];
+    int j=-1,i;
+    for(i=0;i<end;i++)
+    {
+      if(arr[i]<p)
+      {
+          j=j+1;
+          swap(&arr[i],&arr[j]);
+      }
+    }
+    swap(&arr[i],&arr[j+1]);
+    
+    return (j+1);
+}
+
+int quicksort(int arr1[],int start,int end)
+{
+    if(start<end)
+    {
+        int pi=partion(arr1,start,end);
+        quicksort(arr1,start,pi-1);
+        quicksort(arr1,pi+1,end);
+    }
+}
+int main()
+{
+    int arr3[]={91,11,23,44,71,84,45};
+    int n=sizeof(arr3)/sizeof(arr3[0]);
+    quicksort(arr3,0,n-1);
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",arr3[i]);
+    }
+}
+
+OUTPUT 
+
+11 23 44 45 71 84 91 
