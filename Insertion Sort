@@ -1,0 +1,39 @@
+INSERTION SORT
+
+best sort compared to bubble and slection sort
+inplace algo
+tc:0(n2)
+sc:0(1)
+stable algorithm
+can be used if the dataset is small not recoomeded for large datas
+
+#include<stdio.h>
+void insertion(int arr[],int n)
+{
+    int key,j;
+   for(int i=0;i<n;i++)
+   {
+       key=arr[i];
+       j=i-1;
+       while(j>=0 && arr[j]>key)
+       {
+           arr[j+1]=arr[j];
+           j--;
+       }
+       arr[j+1]=key;
+    }
+}
+
+int main()
+{
+    int arr1[]={11,12,34,56,2,3,6,78,99,33,31};
+    int n=sizeof(arr1)/sizeof(arr1[0]);
+    insertion(arr1,n);
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",arr1[i]);
+    }
+}
+
+o/p::
+2 3 6 11 12 31 33 34 56 78 99
