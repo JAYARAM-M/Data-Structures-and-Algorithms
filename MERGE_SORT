@@ -1,0 +1,87 @@
+MERGE SORT
+
+tc:o(nlogn)
+sc:0(n)
+d&c approach
+mainly used in linked list
+stable algo
+outplace algorithm
+it is prefered in LL over quick sort because LL is different from array ,where array 
+has continous sequence of memory,LL is not continous sequ mmy,,and merge sort can perform 
+well in Linked list.
+
+#include<stdio.h>
+void merger(int arr[],int start,int mid,int end)
+{
+    int i,j,k;
+    int ls=start+mid+1; int rs=end-mid;
+    int L[ls];
+    int R[rs];
+    for(i=start;i<ls;i++)
+    {
+        L[i]=arr[i];
+    }
+    for(j=0;j<rs;j++)
+    {
+        R[j]=arr[j+mid+1];
+    }
+    
+    i=j=0; k=start;
+    
+    while(i<ls && j < rs)
+    {
+        if(L[i]<R[j])
+        {
+            arr[k]=L[i];
+            i++;
+            k++;
+        }
+        else
+        {
+            arr[k]=R[j];
+            j++;
+            k++;
+        }
+    }
+    while(i<ls)
+    {
+        arr[k]=L[i];
+        i++;
+        k++;
+        
+    }
+    while(j<rs)
+    {
+        arr[k]=R[j];
+        j++;
+        k++;
+    }
+}
+
+void mergesort(int arr1[],int start,int end)
+{
+    if(start<end)
+    {
+        int mid=(start+end)/2;
+        mergesort(arr1,start,mid);
+        mergesort(arr1,start,mid);
+        merger(arr1,start,mid,end);
+    }
+}
+
+void main()
+{
+    int arr3[]={12,34,56,78,22,45,67,99};
+    int n=sizeof(arr3)/sizeof(arr3[0]);
+    mergesort(arr3,0,n-1);
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",arr3[i]);
+    }
+}
+
+
+
+OUTPUT::
+
+12 22 34 45 56 67 78 99
