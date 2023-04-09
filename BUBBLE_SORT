@@ -1,0 +1,42 @@
+BUBBLE SORT
+
+simplicity of algorithm
+Easy to understand
+tc:0(n2)
+sc:0(1)
+
+stable sorting
+inplace algorithm
+
+#include <stdio.h>
+void bubblesort(int arr[],int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            if(arr[i]>arr[j])
+            {
+                int temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+        
+    }
+}
+
+int main()
+{
+    int arr[]={23,45,67,1,2,3,66,98,99,6,7,8};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    bubblesort(arr,n);
+    for(int i=0;i<n;i++)
+    {
+      printf("%d ",arr[i]);  
+    }
+    return 0;
+}
+
+0/p:::::::
+1 2 3 6 7 8 23 45 66 67 98 99 
